@@ -4,15 +4,18 @@
     {
         public string DocumentNumber { get; private set; }
         public int DocumentTypeId { get; private set; }
+        public DocumentType? DocumentType { get; private set; }
         public string Name { get; private set; }
         public string FathersLastName { get; private set; }
         public string MothersLastName { get; private set; }
         public string Address { get; private set; }
         public string UbigeoCode { get; private set; }
+        public Ubigeo? Ubigeo {  get; private set; }
         public string Phone { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
         public bool Active { get; private set; }
+
         public LibeyUser(string documentNumber, int documentTypeId, string name, string fathersLastName, string mothersLastName, string address,
         string ubigeoCode, string phone, string email, string password)
         {
@@ -28,5 +31,25 @@
             Password = password;
             Active = true;
         }
+
+        public void UpdateDetails(int documentTypeId, string name, string fathersLastName, string mothersLastName, string address,
+    string ubigeoCode, string phone, string email, string password)
+        {
+            DocumentTypeId = documentTypeId;
+            Name = name;
+            FathersLastName = fathersLastName;
+            MothersLastName = mothersLastName;
+            Address = address;
+            UbigeoCode = ubigeoCode;
+            Phone = phone;
+            Email = email;
+            Password = password;
+        }
+
+        public void Deactivate()
+        {
+            Active = false;
+        }
+
     }
 }

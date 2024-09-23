@@ -25,5 +25,27 @@ namespace LibeyTechnicalTestAPI.Controllers.LibeyUser
              _aggregate.Create(command);
             return Ok(true);
         }
+
+        [HttpGet]
+        public IActionResult GetAllUsers()
+        {
+            var users = _aggregate.GetAllUsers();
+            return Ok(users);
+        }
+
+        [HttpPut]
+        public IActionResult Update(UserUpdateorCreateCommand command)
+        {
+            _aggregate.Update(command);
+            return Ok(true);
+        }
+
+        [HttpDelete("{documentNumber}")]
+        public IActionResult LogicalDelete(string documentNumber)
+        {
+            _aggregate.LogicalDelete(documentNumber);
+            return Ok(true);
+        }
+
     }
 }

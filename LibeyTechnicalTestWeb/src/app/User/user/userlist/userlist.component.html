@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div class="col-12 mb-3">
+        <div class="input-group input-group-sm">
+        </div>
+    </div>
+
+    <div class="col-12 mb-5">
+        <div class="table-responsive table-scrollable custom-size">
+            <table class="table table-hover table-container">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="table-column"> DocumentNumber</th>
+                        <th class="table-column"> Name</th>
+                        <th class="table-column"> Address</th>
+                        <th class="table-column"> Phone</th>
+                        <th class="table-column"> Email</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <div *ngFor="let usuario of listaUsuarios">
+                        <tr>
+                            <td class="table-column">{{ usuario.documentNumber }}</td>
+                            <td class="table-column">{{ usuario.name }}</td>
+                            <td class="table-column">{{ usuario.address }}</td>
+                            <td class="table-column">{{ usuario.phone }}</td>
+                            <td class="table-column">{{ usuario.email }}</td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

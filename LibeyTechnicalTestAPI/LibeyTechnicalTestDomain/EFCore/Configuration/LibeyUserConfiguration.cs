@@ -7,7 +7,16 @@ namespace LibeyTechnicalTestDomain.EFCore.Configuration
     {
         public void Configure(EntityTypeBuilder<LibeyUser> builder)
         {
-            builder.ToTable("LibeyUser").HasKey(x => x.DocumentNumber);
+            builder.ToTable("LibeyUser")
+                .HasKey(x => x.DocumentNumber);
+
+            builder.HasOne(user => user.Ubigeo)
+                .WithMany(ubigeo => ubigeo.LibeyUsers)
+                .HasForeignKey(user => user.UbigeoCode);
+
+            builder.HasOne(user => user.DocumentType)
+                .WithMany(doc => doc.LibeyUsers)
+                .HasForeignKey(user => user.DocumentTypeId);
         }
     }
 }

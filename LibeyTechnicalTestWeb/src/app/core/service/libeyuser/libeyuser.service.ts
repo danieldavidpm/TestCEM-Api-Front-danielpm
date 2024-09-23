@@ -8,8 +8,19 @@ import { LibeyUser } from "src/app/entities/libeyuser";
 })
 export class LibeyUserService {
 	constructor(private http: HttpClient) {}
+
 	Find(documentNumber: string): Observable<LibeyUser> {
 		const uri = `${environment.pathLibeyTechnicalTest}LibeyUser/${documentNumber}`;
 		return this.http.get<LibeyUser>(uri);
+	}
+
+	SaveUser(usuario: LibeyUser): Observable<LibeyUser> {
+		const uri = `${environment.pathLibeyTechnicalTest}LibeyUser`;
+		return this.http.post<LibeyUser>(uri, usuario)
+	}
+
+	ListUser(): Observable<LibeyUser[]> {
+		const uri = `${environment.pathLibeyTechnicalTest}LibeyUser/`;
+		return this.http.get<LibeyUser[]>(uri);
 	}
 }
